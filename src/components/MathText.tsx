@@ -59,20 +59,8 @@ export const MathText: React.FC<MathTextProps> = ({
 
   const token: ParsedMathToken = parseMathLabel(rawText, vectorNotation);
 
-  return (
-    <text
-      x={x}
-      y={y}
-      textAnchor={textAnchor}
-      dominantBaseline={dominantBaseline}
-      fontFamily="'Times New Roman', Times, serif"
-      fontSize={fontSize}
-      fill={actualFill}
-      stroke={strokeColor}
-      strokeWidth={strokeWidth}
-      strokeLinejoin="round"
-      className="math-text-stroke select-none"
-    >
+  const renderContent = () => (
+    <>
       {/* Base token */}
       <tspan
         fontStyle={token.isBold ? 'normal' : 'italic'}
@@ -114,6 +102,48 @@ export const MathText: React.FC<MathTextProps> = ({
           {token.superscript}
         </tspan>
       )}
-    </text>
+    </>
+  );
+
+  const hasHalo = strokeWidth > 0 && strokeColor && strokeColor !== 'none';
+
+  return (
+    <g className="select-none">
+      {/* Halo layer rendered first underneath */}
+      {hasHalo && (
+        <text
+          x={x}
+          y={y}
+          textAnchor={textAnchor}
+          dominantBaseline={dominantBaseline}
+          fontFamily="'Times New Roman', Times, serif"
+          fontSize={fontSize}
+          fill={strokeColor}
+          stroke={strokeColor}
+          strokeWidth={strokeWidth}
+          strokeLinejoin="round"
+          strokeLinecap="round"
+          paintOrder="stroke fill"
+          style={{ paintOrder: 'stroke fill' }}
+          aria-hidden="true"
+        >
+          {renderContent()}
+        </text>
+      )}
+
+      {/* Sharp foreground text rendered on top (guaranteed never covered by stroke) */}
+      <text
+        x={x}
+        y={y}
+        textAnchor={textAnchor}
+        dominantBaseline={dominantBaseline}
+        fontFamily="'Times New Roman', Times, serif"
+        fontSize={fontSize}
+        fill={actualFill}
+        stroke="none"
+      >
+        {renderContent()}
+      </text>
+    </g>
   );
 };

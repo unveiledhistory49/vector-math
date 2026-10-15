@@ -118,18 +118,18 @@ export const SolidGeometry: React.FC<SolidGeometryProps> = ({ state, onChange })
                           y1={topY}
                           x2={cx + r + 30}
                           y2={bottomY}
-                          stroke="#d97706"
+                          stroke="#2563eb"
                           strokeWidth="1.5"
                         />
                         {/* Extension ticks */}
-                        <line x1={cx + r + 20} y1={topY} x2={cx + r + 40} y2={topY} stroke="#d97706" strokeWidth="1.5" />
-                        <line x1={cx + r + 20} y1={bottomY} x2={cx + r + 40} y2={bottomY} stroke="#d97706" strokeWidth="1.5" />
+                        <line x1={cx + r + 20} y1={topY} x2={cx + r + 40} y2={topY} stroke="#2563eb" strokeWidth="1.5" />
+                        <line x1={cx + r + 20} y1={bottomY} x2={cx + r + 40} y2={bottomY} stroke="#2563eb" strokeWidth="1.5" />
                         <MathText
                           x={cx + r + 50}
                           y={(topY + bottomY) / 2}
                           label={state.heightLabel}
                           fontSize={18}
-                          color="#d97706"
+                          color="#2563eb"
                         />
                       </g>
                     )}
@@ -189,7 +189,7 @@ export const SolidGeometry: React.FC<SolidGeometryProps> = ({ state, onChange })
                           y={(apexY + baseCy) / 2}
                           label={state.heightLabel}
                           fontSize={18}
-                          color="#d97706"
+                          color="#2563eb"
                         />
                         <MathText
                           x={(cx + (cx + r)) / 2 + 18}
@@ -289,7 +289,7 @@ export const SolidGeometry: React.FC<SolidGeometryProps> = ({ state, onChange })
                     {state.showDimensionLabels && (
                       <g>
                         <MathText x={ox + w / 2} y={oy + 22} label={state.radiusLabel} fontSize={18} />
-                        <MathText x={ox - 18} y={oy - h / 2} label={state.heightLabel} fontSize={18} color="#d97706" />
+                        <MathText x={ox - 18} y={oy - h / 2} label={state.heightLabel} fontSize={18} color="#2563eb" />
                         <MathText x={ox + w + d / 2 + 16} y={oy - d * 0.35 + 14} label={state.slantLabel} fontSize={18} />
                       </g>
                     )}
@@ -328,8 +328,8 @@ export const SolidGeometry: React.FC<SolidGeometryProps> = ({ state, onChange })
                     <line x1={cx} y1={apexY} x2={ox + w + d} y2={oy - d * 0.6} className="fig-line" />
 
                     {/* Central altitude */}
-                    <line x1={cx} y1={apexY} x2={cx} y2={oy - d * 0.3} className="fig-dashed" stroke="#d97706" />
-                    <MathText x={cx - 16} y={cy} label={state.heightLabel} fontSize={18} color="#d97706" />
+                    <line x1={cx} y1={apexY} x2={cx} y2={oy - d * 0.3} className="fig-dashed" stroke="#2563eb" />
+                    <MathText x={cx - 16} y={cy} label={state.heightLabel} fontSize={18} color="#2563eb" />
                   </g>
                 );
               })()}

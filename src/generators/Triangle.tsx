@@ -93,8 +93,8 @@ export const Triangle: React.FC<TriangleProps> = ({ state, onChange }) => {
               <defs>
                 <style>{`
                   .fig-stroke { stroke: ${state.color ? '#1e293b' : '#000000'}; }
-                  .fig-accent { stroke: ${state.color ? '#d97706' : '#000000'}; stroke-width: 2; fill: none; }
-                  .fig-fill { fill: ${state.color ? '#fffbeb' : '#ffffff'}; }
+                  .fig-accent { stroke: ${state.color ? '#2563eb' : '#000000'}; stroke-width: 2; fill: none; }
+                  .fig-fill { fill: ${state.color ? '#f8fafc' : '#ffffff'}; }
                 `}</style>
               </defs>
 
@@ -154,7 +154,7 @@ export const Triangle: React.FC<TriangleProps> = ({ state, onChange }) => {
                   <path
                     d={describeArc(ax, ay, 30, 0, angleDegA)}
                     fill="none"
-                    stroke="#d97706"
+                    stroke="#2563eb"
                     strokeWidth="1.5"
                   />
                   <MathText
@@ -162,7 +162,7 @@ export const Triangle: React.FC<TriangleProps> = ({ state, onChange }) => {
                     y={ay - 12}
                     label={state.angleALabel}
                     fontSize={17}
-                    color="#d97706"
+                    color="#2563eb"
                   />
                 </g>
               )}

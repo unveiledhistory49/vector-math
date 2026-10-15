@@ -176,7 +176,7 @@ export const BoxPlot: React.FC<BoxPlotProps> = ({ state, onChange }) => {
                     Min={state.minVal}
                   </text>
                   {/* Q1 */}
-                  <text x={pxQ1} y={boxTop - 8} fill="#d97706">
+                  <text x={pxQ1} y={boxTop - 8} fill="#2563eb">
                     Q₁={state.q1}
                   </text>
                   {/* Median */}
@@ -184,7 +184,7 @@ export const BoxPlot: React.FC<BoxPlotProps> = ({ state, onChange }) => {
                     Med={state.median}
                   </text>
                   {/* Q3 */}
-                  <text x={pxQ3} y={boxTop - 8} fill="#d97706">
+                  <text x={pxQ3} y={boxTop - 8} fill="#2563eb">
                     Q₃={state.q3}
                   </text>
                   {/* Max */}

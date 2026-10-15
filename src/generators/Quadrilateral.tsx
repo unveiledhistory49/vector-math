@@ -87,7 +87,7 @@ export const Quadrilateral: React.FC<QuadrilateralProps> = ({ state, onChange })
               <defs>
                 <style>{`
                   .fig-stroke { stroke: ${state.color ? '#1e293b' : '#000000'}; }
-                  .fig-fill { fill: ${state.color ? '#fffbeb' : '#ffffff'}; }
+                  .fig-fill { fill: ${state.color ? '#f8fafc' : '#ffffff'}; }
                 `}</style>
               </defs>
 

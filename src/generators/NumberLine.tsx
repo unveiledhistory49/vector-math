@@ -45,12 +45,13 @@ export const NumberLine: React.FC<NumberLineProps> = ({ state, onChange }) => {
 
   return (
     <div className="flex flex-col lg:flex-row items-start gap-8 w-full max-w-7xl mx-auto">
-      {/* Visual Canvas */}
-      <div className="flex-1 w-full flex flex-col items-center">
-        <div className="w-full bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden p-6 flex flex-col items-center">
+      {/* Visual Canvas - Sticky Studio Viewport */}
+      <div className="flex-1 w-full flex flex-col items-center lg:sticky lg:top-24">
+        <div className="w-full bg-white rounded-2xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col items-center">
           <CanvasToolbar
             svgRef={svgRef}
             filename="number-line"
+            dimensions={{ width, height }}
             onReset={() => onChange(defaultNumberLineState)}
           />
 
@@ -94,7 +95,7 @@ export const NumberLine: React.FC<NumberLineProps> = ({ state, onChange }) => {
                   markerHeight="7"
                   orient="auto"
                 >
-                  <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill={state.color ? '#2563eb' : '#000000'} />
+                  <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill={state.color ? '#d97706' : '#000000'} />
                 </marker>
                 <marker
                   id="ray-arrow-left"
@@ -105,7 +106,7 @@ export const NumberLine: React.FC<NumberLineProps> = ({ state, onChange }) => {
                   markerHeight="7"
                   orient="auto"
                 >
-                  <path d="M 10 1.5 L 0 5 L 10 8.5 z" fill={state.color ? '#2563eb' : '#000000'} />
+                  <path d="M 10 1.5 L 0 5 L 10 8.5 z" fill={state.color ? '#d97706' : '#000000'} />
                 </marker>
               </defs>
 
@@ -158,7 +159,7 @@ export const NumberLine: React.FC<NumberLineProps> = ({ state, onChange }) => {
                     y1={lineY}
                     x2={width - paddingX + 20}
                     y2={lineY}
-                    stroke={state.color ? '#2563eb' : '#000000'}
+                    stroke={state.color ? '#d97706' : '#000000'}
                     strokeWidth="5"
                     markerEnd="url(#ray-arrow-right)"
                   />
@@ -167,8 +168,8 @@ export const NumberLine: React.FC<NumberLineProps> = ({ state, onChange }) => {
                     cx={toPxX(val1)}
                     cy={lineY}
                     r="6"
-                    fill={inc1 ? (state.color ? '#2563eb' : '#000000') : '#ffffff'}
-                    stroke={state.color ? '#2563eb' : '#000000'}
+                    fill={inc1 ? (state.color ? '#d97706' : '#000000') : '#ffffff'}
+                    stroke={state.color ? '#d97706' : '#000000'}
                     strokeWidth="3"
                   />
                 </g>
@@ -182,7 +183,7 @@ export const NumberLine: React.FC<NumberLineProps> = ({ state, onChange }) => {
                     y1={lineY}
                     x2={paddingX - 20}
                     y2={lineY}
-                    stroke={state.color ? '#2563eb' : '#000000'}
+                    stroke={state.color ? '#d97706' : '#000000'}
                     strokeWidth="5"
                     markerEnd="url(#ray-arrow-left)"
                   />
@@ -191,8 +192,8 @@ export const NumberLine: React.FC<NumberLineProps> = ({ state, onChange }) => {
                     cx={toPxX(val1)}
                     cy={lineY}
                     r="6"
-                    fill={inc1 ? (state.color ? '#2563eb' : '#000000') : '#ffffff'}
-                    stroke={state.color ? '#2563eb' : '#000000'}
+                    fill={inc1 ? (state.color ? '#d97706' : '#000000') : '#ffffff'}
+                    stroke={state.color ? '#d97706' : '#000000'}
                     strokeWidth="3"
                   />
                 </g>
@@ -206,7 +207,7 @@ export const NumberLine: React.FC<NumberLineProps> = ({ state, onChange }) => {
                     y1={lineY}
                     x2={toPxX(Math.max(val1, val2))}
                     y2={lineY}
-                    stroke={state.color ? '#2563eb' : '#000000'}
+                    stroke={state.color ? '#d97706' : '#000000'}
                     strokeWidth="5"
                   />
                   {/* Left point */}
@@ -214,8 +215,8 @@ export const NumberLine: React.FC<NumberLineProps> = ({ state, onChange }) => {
                     cx={toPxX(val1)}
                     cy={lineY}
                     r="6"
-                    fill={inc1 ? (state.color ? '#2563eb' : '#000000') : '#ffffff'}
-                    stroke={state.color ? '#2563eb' : '#000000'}
+                    fill={inc1 ? (state.color ? '#d97706' : '#000000') : '#ffffff'}
+                    stroke={state.color ? '#d97706' : '#000000'}
                     strokeWidth="3"
                   />
                   {/* Right point */}
@@ -223,8 +224,8 @@ export const NumberLine: React.FC<NumberLineProps> = ({ state, onChange }) => {
                     cx={toPxX(val2)}
                     cy={lineY}
                     r="6"
-                    fill={inc2 ? (state.color ? '#2563eb' : '#000000') : '#ffffff'}
-                    stroke={state.color ? '#2563eb' : '#000000'}
+                    fill={inc2 ? (state.color ? '#d97706' : '#000000') : '#ffffff'}
+                    stroke={state.color ? '#d97706' : '#000000'}
                     strokeWidth="3"
                   />
                 </g>

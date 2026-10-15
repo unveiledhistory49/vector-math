@@ -96,12 +96,13 @@ export const ParallelLines: React.FC<ParallelLinesProps> = ({ state, onChange })
 
   return (
     <div className="flex flex-col lg:flex-row items-start gap-8 w-full max-w-7xl mx-auto">
-      {/* Visual Canvas */}
-      <div className="flex-1 w-full flex flex-col items-center">
-        <div className="w-full bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden p-6 flex flex-col items-center">
+      {/* Visual Canvas - Sticky Studio Viewport */}
+      <div className="flex-1 w-full flex flex-col items-center lg:sticky lg:top-24">
+        <div className="w-full bg-white rounded-2xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col items-center">
           <CanvasToolbar
             svgRef={svgRef}
             filename="parallel-lines"
+            dimensions={{ width: 540, height: 380 }}
             onReset={() => onChange(defaultParallelLinesState)}
           />
 
@@ -155,7 +156,7 @@ export const ParallelLines: React.FC<ParallelLinesProps> = ({ state, onChange })
                 y1={tyBot}
                 x2={txTop}
                 y2={tyTop}
-                stroke={state.color ? '#2563eb' : '#1e293b'}
+                stroke={state.color ? '#d97706' : '#1e293b'}
                 strokeWidth="2.5"
                 markerStart="url(#line-arrow)"
                 markerEnd="url(#line-arrow)"

@@ -35,12 +35,13 @@ export const SolidGeometry: React.FC<SolidGeometryProps> = ({ state, onChange })
 
   return (
     <div className="flex flex-col lg:flex-row items-start gap-8 w-full max-w-7xl mx-auto">
-      {/* Visual Canvas */}
-      <div className="flex-1 w-full flex flex-col items-center">
-        <div className="w-full bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden p-6 flex flex-col items-center">
+      {/* Visual Canvas - Sticky Studio Viewport */}
+      <div className="flex-1 w-full flex flex-col items-center lg:sticky lg:top-24">
+        <div className="w-full bg-white rounded-2xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col items-center">
           <CanvasToolbar
             svgRef={svgRef}
             filename={`solid-${state.type}`}
+            dimensions={{ width: 540, height: 400 }}
             onReset={() => onChange(defaultSolidGeometryState)}
           />
 
@@ -117,18 +118,18 @@ export const SolidGeometry: React.FC<SolidGeometryProps> = ({ state, onChange })
                           y1={topY}
                           x2={cx + r + 30}
                           y2={bottomY}
-                          stroke="#2563eb"
+                          stroke="#d97706"
                           strokeWidth="1.5"
                         />
                         {/* Extension ticks */}
-                        <line x1={cx + r + 20} y1={topY} x2={cx + r + 40} y2={topY} stroke="#2563eb" strokeWidth="1.5" />
-                        <line x1={cx + r + 20} y1={bottomY} x2={cx + r + 40} y2={bottomY} stroke="#2563eb" strokeWidth="1.5" />
+                        <line x1={cx + r + 20} y1={topY} x2={cx + r + 40} y2={topY} stroke="#d97706" strokeWidth="1.5" />
+                        <line x1={cx + r + 20} y1={bottomY} x2={cx + r + 40} y2={bottomY} stroke="#d97706" strokeWidth="1.5" />
                         <MathText
                           x={cx + r + 50}
                           y={(topY + bottomY) / 2}
                           label={state.heightLabel}
                           fontSize={18}
-                          color="#2563eb"
+                          color="#d97706"
                         />
                       </g>
                     )}
@@ -188,7 +189,7 @@ export const SolidGeometry: React.FC<SolidGeometryProps> = ({ state, onChange })
                           y={(apexY + baseCy) / 2}
                           label={state.heightLabel}
                           fontSize={18}
-                          color="#2563eb"
+                          color="#d97706"
                         />
                         <MathText
                           x={(cx + (cx + r)) / 2 + 18}
@@ -288,7 +289,7 @@ export const SolidGeometry: React.FC<SolidGeometryProps> = ({ state, onChange })
                     {state.showDimensionLabels && (
                       <g>
                         <MathText x={ox + w / 2} y={oy + 22} label={state.radiusLabel} fontSize={18} />
-                        <MathText x={ox - 18} y={oy - h / 2} label={state.heightLabel} fontSize={18} color="#2563eb" />
+                        <MathText x={ox - 18} y={oy - h / 2} label={state.heightLabel} fontSize={18} color="#d97706" />
                         <MathText x={ox + w + d / 2 + 16} y={oy - d * 0.35 + 14} label={state.slantLabel} fontSize={18} />
                       </g>
                     )}
@@ -327,8 +328,8 @@ export const SolidGeometry: React.FC<SolidGeometryProps> = ({ state, onChange })
                     <line x1={cx} y1={apexY} x2={ox + w + d} y2={oy - d * 0.6} className="fig-line" />
 
                     {/* Central altitude */}
-                    <line x1={cx} y1={apexY} x2={cx} y2={oy - d * 0.3} className="fig-dashed" stroke="#2563eb" />
-                    <MathText x={cx - 16} y={cy} label={state.heightLabel} fontSize={18} color="#2563eb" />
+                    <line x1={cx} y1={apexY} x2={cx} y2={oy - d * 0.3} className="fig-dashed" stroke="#d97706" />
+                    <MathText x={cx - 16} y={cy} label={state.heightLabel} fontSize={18} color="#d97706" />
                   </g>
                 );
               })()}

@@ -67,12 +67,13 @@ export const Quadrilateral: React.FC<QuadrilateralProps> = ({ state, onChange })
 
   return (
     <div className="flex flex-col lg:flex-row items-start gap-8 w-full max-w-7xl mx-auto">
-      {/* Visual Canvas */}
-      <div className="flex-1 w-full flex flex-col items-center">
-        <div className="w-full bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden p-6 flex flex-col items-center">
+      {/* Visual Canvas - Sticky Studio Viewport */}
+      <div className="flex-1 w-full flex flex-col items-center lg:sticky lg:top-24">
+        <div className="w-full bg-white rounded-2xl shadow-sm border border-slate-200/90 overflow-hidden flex flex-col items-center">
           <CanvasToolbar
             svgRef={svgRef}
             filename={`quadrilateral-${state.type}`}
+            dimensions={{ width: 540, height: 380 }}
             onReset={() => onChange(defaultQuadrilateralState)}
           />
 
@@ -86,7 +87,7 @@ export const Quadrilateral: React.FC<QuadrilateralProps> = ({ state, onChange })
               <defs>
                 <style>{`
                   .fig-stroke { stroke: ${state.color ? '#1e293b' : '#000000'}; }
-                  .fig-fill { fill: ${state.color ? '#f8fafc' : '#ffffff'}; }
+                  .fig-fill { fill: ${state.color ? '#fffbeb' : '#ffffff'}; }
                 `}</style>
               </defs>
 

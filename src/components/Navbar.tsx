@@ -26,7 +26,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
             <div>
               <span className="font-bold text-slate-900 text-base tracking-tight block">
-                Math Figures
+                Vector Math
               </span>
               <span className="text-[10px] text-amber-800 font-semibold tracking-wider block uppercase">
                 Technical Mathematics Studio
@@ -48,32 +48,32 @@ export const Navbar: React.FC<NavbarProps> = ({
           )}
         </div>
 
-        {/* Network Family (STEM Figures) */}
+        {/* Network Family (Vector STEM Suite) */}
         <div className="flex items-center gap-4">
           <div className="hidden md:flex items-center gap-2 text-xs text-slate-600">
-            <span className="text-slate-400 mr-0.5 font-medium">Studio Suite:</span>
+            <span className="text-slate-400 mr-0.5 font-medium">Vector Suite:</span>
             <a
-              href="https://physics-figures.vercel.app"
+              href="https://vector-physics.vercel.app"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 font-medium transition-all"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-600 inline-block" />
-              Physics
+              Vector Physics
             </a>
             <a
-              href="https://chemistry-figures.vercel.app"
+              href="https://vector-chem.vercel.app"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-900 border border-blue-200 font-medium transition-all"
             >
               <span className="w-2 h-2 rounded-full bg-blue-800 inline-block" />
-              Chemistry
+              Vector Chem
             </a>
           </div>
 
           <a
-            href="https://github.com/unveiledhistory49/math-figures"
+            href="https://github.com/unveiledhistory49/vector-math"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-slate-800 transition-colors px-2.5 py-1 rounded-lg border border-slate-200 hover:border-slate-300"

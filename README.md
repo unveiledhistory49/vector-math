@@ -1,8 +1,9 @@
-# Math Figures
+# Vector Math
 
-A standalone, publication-grade educational vector diagram generator for mathematics, geometry, algebra, and statistics. Built with **React 19**, **TypeScript**, **Tailwind CSS**, and **Vite**.
+A standalone, publication-grade STEM vector diagram studio for mathematics, geometry, algebra, and statistics. Built with **React 19**, **TypeScript**, **Tailwind CSS**, and **Vite**.
 
-Reverse engineered from [MathFigures.com](https://mathfigures.com/).
+- **Live URL**: [https://vector-math.vercel.app](https://vector-math.vercel.app)
+- **Suite Family**: [Vector Physics](https://vector-physics.vercel.app) · [Vector Chem](https://vector-chem.vercel.app)
 
 ---
 

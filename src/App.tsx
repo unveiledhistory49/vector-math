@@ -93,30 +93,30 @@ export const App: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-amber-600 inline-block" />
-            <span className="font-medium text-slate-700">Math Figures</span>
-            <span>— Publication-grade vector studio for tests and worksheets.</span>
+            <span className="font-medium text-slate-700">Vector Math</span>
+            <span>— Precision STEM vector diagram studio for tests and worksheets.</span>
           </div>
           <div className="flex items-center gap-4 text-xs font-medium">
             <a
-              href="https://physics-figures.vercel.app"
+              href="https://vector-physics.vercel.app"
               target="_blank"
               rel="noreferrer"
               className="text-slate-600 hover:text-emerald-700 transition-colors"
             >
-              Physics Figures
+              Vector Physics
             </a>
             <span className="text-slate-300">·</span>
             <a
-              href="https://chemistry-figures.vercel.app"
+              href="https://vector-chem.vercel.app"
               target="_blank"
               rel="noreferrer"
               className="text-slate-600 hover:text-blue-800 transition-colors"
             >
-              Chemistry Figures
+              Vector Chem
             </a>
             <span className="text-slate-300">·</span>
             <a
-              href="https://github.com/unveiledhistory49/math-figures"
+              href="https://github.com/unveiledhistory49/vector-math"
               target="_blank"
               rel="noreferrer"
               className="text-slate-600 hover:text-slate-900 transition-colors"

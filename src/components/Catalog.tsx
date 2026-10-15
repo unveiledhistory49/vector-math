@@ -69,11 +69,11 @@ export const Catalog: React.FC<CatalogProps> = ({ onSelectGenerator }) => {
       <div className="text-center max-w-3xl mx-auto flex flex-col gap-3">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-xs font-semibold mx-auto">
           <Compass className="w-3.5 h-3.5 text-amber-600" />
-          Technical Mathematics Studio
+          Vector Math Studio
         </div>
 
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Math figures for your tests and worksheets
+          Vector math figures for your tests and worksheets
         </h1>
         <p className="text-base sm:text-lg text-slate-600">
           Make clean, publication-grade geometry, algebra, and statistics vector diagrams.

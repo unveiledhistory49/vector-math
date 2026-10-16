@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { GeneratorKind, GeneratorMetadata } from '../types/figures';
 import { Search, ArrowRight, Compass } from 'lucide-react';
+import { FigurePreview } from './CatalogPreviews';
 
 interface CatalogProps {
   onSelectGenerator: (kind: GeneratorKind) => void;
@@ -11,43 +12,43 @@ export const GENERATORS: GeneratorMetadata[] = [
     id: 'triangle',
     title: 'Geometric Triangle Generator',
     description: 'Right, isosceles, equilateral, and scalene triangles with side lengths, angle arcs, right-angle markers, and altitudes.',
-    tags: ['Geometry', 'Triangles', 'Pythagorean', 'Trigonometry'],
+    tags: ['Geometry', 'Triangles', 'Pythagorean'],
   },
   {
     id: 'quadrilateral',
     title: 'Quadrilateral & Polygon Generator',
     description: 'Rectangles, parallelograms, and trapezoids with altitude lines, congruence tick marks, and diagonals.',
-    tags: ['Geometry', 'Area', 'Perimeter', 'Polygons'],
+    tags: ['Geometry', 'Area', 'Perimeter'],
   },
   {
     id: 'solid-geometry',
     title: '3D Solid Geometry Generator',
     description: 'Cylinders, cones, spheres, prisms, and pyramids with dashed hidden edges, dimensions, and slant heights.',
-    tags: ['Geometry', '3D Solids', 'Volume', 'Surface Area'],
+    tags: ['Geometry', '3D Solids', 'Volume'],
   },
   {
     id: 'parallel-lines',
     title: 'Parallel Lines & Transversals',
     description: 'Two parallel lines cut by a transversal with 8 labeled angle sectors, angle arcs, and algebraic expressions.',
-    tags: ['Geometry', 'Angles', 'Theorems', 'Algebra'],
+    tags: ['Geometry', 'Angles', 'Theorems'],
   },
   {
     id: 'coordinate-grid',
     title: 'Cartesian Coordinate Grapher',
     description: 'Full Cartesian grid with integer ticks, linear equation plotting (y = mx + b), points, and slope triangles.',
-    tags: ['Algebra', 'Functions', 'Slope', 'Coordinate Plane'],
+    tags: ['Algebra', 'Functions', 'Slope'],
   },
   {
     id: 'number-line',
     title: 'Real Number Line Inequality Grapher',
     description: 'Calibrated number line with open/closed boundary circles, ray arrows, and compound interval segments.',
-    tags: ['Algebra', 'Inequalities', 'Intervals', 'Number Line'],
+    tags: ['Algebra', 'Inequalities', 'Intervals'],
   },
   {
     id: 'box-plot',
     title: 'Box and Whisker Plot Generator',
     description: 'Five-number summary box plot (Min, Q1, Median, Q3, Max) with calibrated scale and summary annotations.',
-    tags: ['Statistics', 'Data', 'Box Plot', 'Quartiles'],
+    tags: ['Statistics', 'Data', 'Box Plot'],
   },
 ];
 
@@ -73,62 +74,66 @@ export const Catalog: React.FC<CatalogProps> = ({ onSelectGenerator }) => {
         </div>
 
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Vector math figures for your tests and worksheets
+          Math figures for your tests and worksheets
         </h1>
         <p className="text-base sm:text-lg text-slate-600">
           Make clean, publication-grade geometry, algebra, and statistics vector diagrams.
-          Free, with high-DPI PNG clipboard copying and clean SVG downloads.
+          Free, with high-DPI clipboard export and zero sign-up.
         </p>
 
         {/* Search Input */}
-        <div className="mt-4 relative max-w-lg mx-auto w-full">
+        <div className="mt-3 relative max-w-lg mx-auto w-full">
           <Search className="w-5 h-5 text-slate-400 absolute left-3.5 top-3.5" />
           <input
             type="search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search figures, e.g. “triangle”, “coordinate grid”, “box plot”..."
+            placeholder="Search figures, like “triangle”, “coordinate grid”..."
             className="w-full pl-11 pr-4 py-2.5 rounded-xl border border-slate-300 bg-white shadow-sm text-sm focus:outline-amber-600 focus:ring-2 focus:ring-amber-100 transition-all"
           />
         </div>
       </div>
 
-      {/* Grid of Diagrams */}
+      {/* Grid of Diagrams with Live Visual Previews */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
         {filtered.map((gen) => (
           <div
             key={gen.id}
             onClick={() => onSelectGenerator(gen.id)}
-            className="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col justify-between hover:shadow-md hover:border-amber-400 transition-all cursor-pointer group"
+            className="bg-white rounded-2xl border border-slate-200 overflow-hidden flex flex-col hover:shadow-lg hover:border-amber-500/80 transition-all cursor-pointer group"
           >
-            <div className="flex flex-col gap-3">
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-amber-900 bg-amber-50 border border-amber-200/60 px-2 py-0.5 rounded-md">
-                  {gen.tags[0]}
-                </span>
-                <span className="text-xs text-slate-400 group-hover:text-amber-700 transition-colors">
-                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                </span>
-              </div>
-
-              <h2 className="text-lg font-bold text-slate-900 group-hover:text-amber-700 transition-colors">
-                {gen.title}
-              </h2>
-
-              <p className="text-xs text-slate-600 leading-relaxed">
-                {gen.description}
-              </p>
+            {/* Visual Figure SVG Preview */}
+            <div className="w-full h-44 bg-slate-50/50 border-b border-slate-100 flex items-center justify-center p-3 group-hover:bg-white transition-colors relative">
+              <FigurePreview kind={gen.id} />
+              <span className="absolute top-3 right-3 text-[11px] font-semibold uppercase tracking-wider text-amber-900 bg-white/90 border border-amber-200 px-2 py-0.5 rounded-md shadow-xs">
+                {gen.tags[0]}
+              </span>
             </div>
 
-            <div className="flex flex-wrap gap-1.5 mt-5 pt-3.5 border-t border-slate-100">
-              {gen.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-[11px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded-md font-medium border border-slate-200/60"
-                >
-                  {tag}
-                </span>
-              ))}
+            {/* Content & Metadata */}
+            <div className="p-5 flex-1 flex flex-col justify-between gap-4">
+              <div className="flex flex-col gap-1.5">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-base font-bold text-slate-900 group-hover:text-amber-700 transition-colors">
+                    {gen.title}
+                  </h3>
+                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-amber-600 transform group-hover:translate-x-1 transition-all shrink-0" />
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  {gen.description}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+                {gen.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[11px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded-md font-medium border border-slate-200/60"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         ))}
